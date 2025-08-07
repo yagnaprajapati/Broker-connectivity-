@@ -33,6 +33,7 @@ import org.springframework.stereotype.Component;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.quantTech.broker_connectivity.broker.data.CandleData;
+import com.quantTech.broker_connectivity.credential.Credentials;
 import com.warrenstrange.googleauth.GoogleAuthenticator;
 
 @Component
@@ -40,6 +41,7 @@ public class ZerodhaKiteApi {
 
 	private HttpClient client1;
 	private static Map<String, String> headers = new HashMap<>();
+	private Credentials credentials;
 	private String userApikey;
 	private String userId;
 	private String password;

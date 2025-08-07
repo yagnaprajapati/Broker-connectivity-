@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 import com.quantTech.broker_connectivity.broker.data.CandleData;
+import com.quantTech.broker_connectivity.broker.exception.AccessTokenNotGenerated;
 
 import jakarta.annotation.PostConstruct;
 
@@ -41,13 +42,15 @@ public class ZerodhaService implements BrokerApi {
 
 	@Override
 	public boolean generateAccessToken(HashMap<String, String> credential) {
+		boolean isValid = true;
 		System.out.println("Thisi is ZerodhaService: Generating access token with credentials: " + credential);
 		String accessToken = kiteApi.getAccessToken(credential);
 		if (accessToken == null || accessToken.isEmpty()) {
 			System.out.println("Failed to generate access token.");
-			return false;
+			isValid = false;
+			throw new AccessTokenNotGenerated("Failed to generate access token.");
 		}
-		return true;
+		return isValid;
 	}
 
 	@Override
