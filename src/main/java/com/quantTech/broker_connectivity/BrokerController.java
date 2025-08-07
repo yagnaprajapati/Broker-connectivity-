@@ -21,7 +21,7 @@ import com.quantTech.broker_connectivity.credential.Credentials;
 import jakarta.validation.Valid;
 
 
-@CrossOrigin(origins = "https://your-frontend-domain.onrender.com")
+@CrossOrigin(origins = "https://broker-connectivity.onrender.com")
 @RestController
 @RequestMapping("/broker")
 public class BrokerController {
