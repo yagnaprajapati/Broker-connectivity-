@@ -56,4 +56,5 @@ public class BrokerController {
 		String stringVerify = brokerApi.generateString("verifyBroker", "broker");
 		return ResponseEntity.ok(stringVerify);
 	}
+	
 }
